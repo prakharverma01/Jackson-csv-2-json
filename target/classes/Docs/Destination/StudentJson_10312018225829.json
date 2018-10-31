@@ -1,0 +1,17 @@
+[ {
+  "name" : "Prakhar",
+  "age" : "24",
+  "bestSubject" : "java"
+}, {
+  "name" : "Ali",
+  "age" : "25",
+  "bestSubject" : "Spring-Boot"
+}, {
+  "name" : "Manish",
+  "age" : "28",
+  "bestSubject" : "Sales"
+}, {
+  "name" : "Zeeshan",
+  "age" : "25",
+  "bestSubject" : "Engineering"
+} ]
