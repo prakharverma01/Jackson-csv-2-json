@@ -25,6 +25,9 @@ public class ConvertCsv2Json implements JsonServiceProvider {
 	@Autowired
 	PropertyConfig config;
 	
+	@Autowired
+	URLSenderService postService;
+	
 	@Override
 	public void convertCsv2Json() {
 		CsvSchema csvSchema = null;
@@ -91,7 +94,19 @@ public class ConvertCsv2Json implements JsonServiceProvider {
 			/*
 			 * Write JSON formatted data to output.json file
 			 */
+			if(config.getDestinationIsFile().charAt(0)=='Y') {
 			mapper.writerWithDefaultPrettyPrinter().writeValue(outputFile,readAll);
+			}
+			
+			if(config.getDestinationIsURL().charAt(0)=='Y') {
+				
+				if(postService.sendJsonToUrl(mapper.writerWithDefaultPrettyPrinter().
+							     writeValueAsString(readAll), correlationId)) {
+					System.out.println("Sent to URL");					
+				}
+				else
+					System.out.println("Not Sent to URL");
+			}
 		}
 		catch(FileNotFoundException e) {
 			MsgService("File not found" + e.getMessage());
