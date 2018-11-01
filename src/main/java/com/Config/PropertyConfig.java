@@ -32,6 +32,33 @@ public class PropertyConfig {
 	@Value("${config.Header}")
 	private String header;
 	
+	@Value("${config.destinationIsURL}")
+	private String destinationIsURL;
+	
+	@Value("${config.destinationURL}")
+	private String destinationURL;
+	
+	@Value("${config.destinationIsFile}")
+	private String destinationIsFile;
+	
+	public String getDestinationURL() {
+		return destinationURL;
+	}
+	public void setDestinationURL(String destinationURL) {
+		this.destinationURL = destinationURL;
+	}
+	public String getDestinationIsURL() {
+		return destinationIsURL;
+	}
+	public void setDestinationIsURL(String destinationIsURL) {
+		this.destinationIsURL = destinationIsURL;
+	}
+	public String getDestinationIsFile() {
+		return destinationIsFile;
+	}
+	public void setDestinationIsFile(String destinationIsFile) {
+		this.destinationIsFile = destinationIsFile;
+	}
 	public String getHeader(){
 		return header;
 	}
