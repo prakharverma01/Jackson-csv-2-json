@@ -1,8 +1,9 @@
-package com.Service;
+package com.Services;
 
 import java.io.IOException;
+
+import org.apache.catalina.connector.ClientAbortException;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -18,7 +19,7 @@ public class URLSenderService {
 	@Autowired
 	PropertyConfig properties;
 	
-	public boolean sendJsonToUrl(String jsonMessage,String corelationID) throws ClientProtocolException, IOException {
+	public boolean sendJsonToUrl(String jsonMessage,String corelationID) throws ClientAbortException, IOException {
 		
 		HttpClient httpClient = HttpClientBuilder.create().build();
 		StringEntity apiMessage=new StringEntity(jsonMessage);
